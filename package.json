@@ -1,0 +1,20 @@
+{
+  "name": "csv-to-pdf",
+  "version": "1.0.0",
+  "description": "csv to pdf converter",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^6.3.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "pug": "^3.0.2",
+    "puppeteer": "^21.5.2",
+    "xlsx": "^0.18.5"
+  }
+}

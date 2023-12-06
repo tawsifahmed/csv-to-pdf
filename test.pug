@@ -1,0 +1,244 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&family=Noto+Serif+Bengali&display=swap")
+    title Document
+    style.
+        * {
+          padding: 0px;
+          margin: 0px;
+          box-sizing: border-box;
+        }
+
+        b{
+            font-size: 10px;
+        }
+
+        .kalpurush{
+            font-family: 'Noto Serif Bengali', serif !important;
+        }
+
+        .shilguri{
+            font-family: 'Hind Siliguri', sans-serif !important;
+        }
+
+        .card-wrapper{
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%; 
+            margin-bottom: 13px;
+        }
+
+        .nominee-votecenter{
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+        }
+
+        .imgs{
+            width: 90px;
+            height: 110px;
+        }
+
+        .vote-center{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vote-details{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vote-details b{
+            margin-top: 4px;
+            text-wrap: nowrap !important;
+        }
+
+        .left-part{
+            width: 20%;
+        }
+
+        .mid-part{
+            width: 60%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .mid-part h3{
+         font-weight: 100 !important;
+        }
+
+        .right-part{
+            width: 20%;
+        }
+
+        .vote-brief{
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .vote-brief h2{
+            font-size: 1.1rem;
+        }
+        .vote-brief h6{
+            font-size: 0.5rem;
+        }
+
+        .vote-brief h2, h6{
+            font-weight: 700 !important;
+        }
+        
+        .vote-center-name{
+            position: relative;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .vote-center-name p {
+          position: absolute;
+          left: 28%;
+          bottom: -12px;
+          width: 70%;
+          font-size: 10px;
+          line-height: 12px;
+        }
+
+        .voter-info-wrapper{
+            display: flex;
+            align-items: start;
+            width: 100%;
+        }
+
+        .voter-info{
+            width: 30%;
+        }
+
+        .right-part{
+            display: flex;
+            flex-direction: column;
+            align-items: self-end;
+        }
+
+        .right-part h4{
+            text-align: center;
+        }
+
+        .nouka-jpg{
+            width: 150px;
+            height: 130px;
+        }
+
+        .voter-info-and-dynamic{
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            height: 11px;
+            margin-bottom: 3px;
+        }
+
+        .voter-info-and-dynamic b{
+            font-weight: 100;
+        }
+
+        .d-values{
+            justify-content: start !important;
+        }
+
+        .dynamic-section{
+            width: 70%;
+        }
+
+        .dynamic{
+            margin-left: 3px;
+        }
+
+        .job-date-wrapper{
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .job-dynamic{
+            width: 50% ;
+        }
+
+        .b-date{
+            display: flex;
+            align-items: center;
+            width: 50% ;
+        }
+  body
+    each voter in records
+      .card-wrapper
+        // left part
+        .left-part
+          b.shilguri জয় বাংলা
+          // nominee photo and vote center
+          .nominee-votecenter
+            img.imgs(src="https://i.ibb.co/dDScJyb/Mr-Golam-Dastagir-Gazi.png")
+            .vote-center
+              b.shilguri নারায়নগঞ্জ-১
+              b.shilguri (রুপগঞ্জ)
+          .vote-details
+            b.shilguri ভোটার এলাকার নম্বরঃ #{voter.areaNumber}
+            b.shilguri ভোটার এলাকার নামঃ #{voter.areaName}
+            b.shilguri ইউনিয়ন/ওয়ার্ডঃ #{voter.union} #{voter.word}
+        // middle part
+        .mid-part
+          b.shilguri আলাহ সর্বশক্তিমান
+          h3.shilguri দ্বাদশ জাতীয় সংসদ নির্বাচন
+          .vote-brief
+            h2.shilguri গোলাম দস্তগীর গাজী
+            h6.shilguri (বীর প্রতীক)
+            h2.shilguri  কে নৌকা মার্কায় ভোট দিন
+          .vote-center-name
+            p.shilguri #{voter.voteCenter}
+          div
+            b.shilguri ভোট কেন্দ্রের নামঃ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+          .voter-info-wrapper
+            .voter-info
+              .voter-info-and-dynamic
+                b.kalpurush নামঃ
+              .voter-info-and-dynamic
+                b.kalpurush ভোটার নংঃ
+              .voter-info-and-dynamic
+                b.kalpurush পিতাঃ
+              .voter-info-and-dynamic
+                b.kalpurush মাতাঃ
+              .voter-info-and-dynamic
+                b.kalpurush পেশাঃ
+              .voter-info-and-dynamic
+                b.kalpurush ঠিকানাঃ
+            .dynamic-section
+              .voter-info-and-dynamic.d-values
+                .job-date-wrapper
+                  b.dynamic.job-dynamic.kalpurush #{voter.Name}
+                  .b-date
+                    b.kalpurush ক্রমিক নংঃ
+                    b.dynamic.kalpurush #{voter['Serial Number']}
+              .voter-info-and-dynamic.d-values
+                b.dynamic.kalpurush #{voter['Voter No']}
+              .voter-info-and-dynamic.d-values
+                b.dynamic.kalpurush #{voter.Father}
+              .voter-info-and-dynamic.d-values
+                b.dynamic.kalpurush #{voter.Mother}
+              .voter-info-and-dynamic.d-values
+                .job-date-wrapper
+                  b.dynamic.job-dynamic.kalpurush #{voter.Occupation}
+              .voter-info-and-dynamic.d-values
+                b.dynamic.kalpurush #{voter.Address}
+        // right part
+        .right-part
+          b.shilguri জয় বঙ্গবন্ধু
+          img.nouka-jpg(src="https://i.ibb.co/QY3HHxh/noukas.png")
+          h4.kalpurush নৌকা মার্কায় ভোট দিন

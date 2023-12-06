@@ -1,0 +1,154 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    style.
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+      b {
+        font-size: 9px;
+      }
+      .card-wrapper {
+        border: 2px solid black;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .nominee-votecenter {
+        display: flex;
+        align-items: center;
+      }
+      .imgs {
+        width: 110px;
+        height: 130px;
+      }
+      .vote-center {
+        display: flex;
+        flex-direction: column;
+      }
+      .vote-details {
+        display: flex;
+        flex-direction: column;
+      }
+      .left-part {
+        width: 20%;
+      }
+      .mid-part {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .right-part {
+        width: 20%;
+      }
+      .vote-brief {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .vote-brief h2 {
+        font-size: 1.1rem;
+      }
+      .vote-brief h6 {
+        font-size: 0.5rem;
+      }
+      .vote-brief h2, h6 {
+        font-weight: 100 !important;
+      }
+      .vote-center-name {
+        border-left: 0.5px solid black;
+        border-top: 0.5px solid black;
+        padding: 5px;
+        font-size: 7px;
+      }
+      .voter-info {
+        display: flex;
+        flex-direction: column;
+      }
+      .voter-info b {
+        font-weight: 100;
+      }
+      .right-part {
+        display: flex;
+        flex-direction: column;
+        align-items: self-end;
+      }
+      .nouka-jpg {
+        width: 140px;
+        height: 140px;
+        background-color: white;
+      }
+      .voter-info-and-dynamic {
+        display: flex;
+        align-items: center;
+      }
+      .dynamic {
+        margin-left: 3px;
+      }
+  body
+    each voter in records
+      .card-wrapper
+        // left part
+        .left-part
+          b জয় বাংলা
+          // nominee photo and vote center
+          .nominee-votecenter
+            img.imgs(src="./assets/Mr.-Golam-Dastagir-Gazi.png", alt="")
+            .vote-center
+              b নারায়নগঞ্জ-১
+              b (রুপগঞ্জ)
+          .vote-details
+            b ভোটার এলাকার নম্বরঃ ১২৯৩
+            b ভোটার এলাকার নামঃ টাওরা
+            b সিটি কর্পোরেশন/পৌরসভাঃ ৬
+            b ইউনিয়ন/ওয়ার্ডঃ ভোলাবা
+        // middle part
+        .mid-part
+          b আলাহ সর্বশক্তিমান
+          .vote-brief
+            h2(style="") গোলাম দস্তগীর গাজী
+            h6 (বীর প্রতীক)
+            h2  কে নৌকা মার্কায় ভোট দিন
+          .vote-center-name
+            | টাওরা সরকারী প্রাথমিক বিদায়লয় (PEDP - 3 ও টিনশেড
+            br
+            |  ভবন) কেন্দ্র ২
+          div
+            b ভোট কেন্দ্রের নামঃ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+          .voter-info
+            .voter-info-and-dynamic
+              b ০০০১.
+              b.dynamic #{voter['Serial Number']}
+            .voter-info-and-dynamic
+              b ভোটার নং: 
+              b.dynamic #{voter['Voter No']}
+            .voter-info-and-dynamic
+              b স্বামী: 
+              b.dynamic
+            .voter-info-and-dynamic
+              b Father:
+              b.dynamic  #{voter.Father}
+            .voter-info-and-dynamic
+              b মাতা:
+              b.dynamic  #{voter.Mother}
+            .voter-info-and-dynamic
+              b পেশা:
+              b.dynamic  #{voter.Occupation}
+            .voter-info-and-dynamic
+              b DOB:
+              b.dynamic #{voter.DOB}
+            .voter-info-and-dynamic
+              b ঠিকানা:
+              b.dynamic #{voter.Address}
+        // right part
+        .right-part
+          b জয় বঙ্গবন্ধু
+          img.nouka-jpg(src="./assets/noukas.png", alt="")
