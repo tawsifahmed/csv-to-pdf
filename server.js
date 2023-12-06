@@ -32,7 +32,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
     };
 
     var exlData = []
-    parseExcel('./center.xlsx').forEach(element => {
+    parseExcel('./center_rev_latest.xlsx').forEach(element => {
         exlData = element.data
     });
 
