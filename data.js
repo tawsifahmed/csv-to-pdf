@@ -2071,11 +2071,6 @@ const csvs = [
     "length": 4,
     "area": 1303
   }
-
-
-
-
-
 ]
 
 module.exports = csvs
