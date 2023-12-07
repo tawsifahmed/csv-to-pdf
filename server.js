@@ -32,7 +32,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
     };
 
     var exlData = []
-    parseExcel('./center_rev_latest.xlsx').forEach(element => {
+    parseExcel('./center_rev_latest_7dec_ev.xlsx').forEach(element => {
         exlData = element.data
     });
 
@@ -238,7 +238,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
         await browser.close();
     }
 
-    fs.createReadStream(__dirname + `/female_csvs/${fileName}.csv`).pipe(parserOne)
+    fs.createReadStream(__dirname + `/male_csvs/${fileName}.csv`).pipe(parserOne)
     // fs.createReadStream(__dirname+'/parsed_output_female.csv').pipe(parserTwo)
 
 }
@@ -253,10 +253,10 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 // });
 
 
-const gender = 'female' /// input value when send csv
-const length = 4  /// input value when send csv
-const area = 1556 /// input value when send csv
-const fileName = '671556_com_1395_female_without_photo_78_2023-10-1' /// input value when send csv
+const gender = 'male' /// input value when send csv
+const length = 2  /// input value when send csv
+const area = 1498 /// input value when send csv
+const fileName = '671498_com_16_male_without_photo_2_2023-10-1' /// input value when send csv
 generatePdfs(gender, length, area, fileName)
 
 app.use(express.json())
