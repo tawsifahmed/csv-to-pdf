@@ -32,7 +32,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
     };
 
     var exlData = []
-    parseExcel('./center_rev_latest_10dec.xlsx').forEach(element => {
+    parseExcel('./kendro_updated_list.xlsx').forEach(element => {
         exlData = element.data
     });
 
@@ -71,13 +71,19 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
         };
 
         // Replace each Bengali numeral with its Arabic counterpart
-        const arabicNumber = bengaliNumber.replace(/[০-৯]/g, digit => digitMap[digit]);
+        const arabicNumber = bengaliNumber?.replace(/[০-৯]/g, digit => digitMap[digit]);
 
         return arabicNumber;
     }
 
+
     exlData.forEach((item) => {
-        let engArea = convertBengaliToArabic(item['ভোটার এলাকার নম্বর'])
+        // console.log('item =>', item['প/ম'])
+        // console.log('item =>', item['ক্রমিক নং'])
+        // console.log('item word =>', item['ওয়ার্ড '])
+        // console.log('item word =>', item['কেন্দ্রের নাম'])
+
+        let engArea = item['ভোটার এলাকার নম্বর']
 
         // console.log('test =>', area === Number(engArea) && gender === item['প/ম'])
 
@@ -86,7 +92,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
             const w = convertToBanglaString(`${item['ওয়ার্ড ']}`)
 
             voteCenter = ` ${vC} - ${item['কেন্দ্রের নাম']}`
-            areaNumber = item['ভোটার এলাকার নম্বর']
+            areaNumber = convertToBanglaString(`${item['ভোটার এলাকার নম্বর'] }`)
             areaName = item['ভোটার এলাকা']
             union = item['পৌরসভা / ইউনিয়ন']
             word = w
@@ -244,7 +250,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 }
 
 // console.log('csvs length =>', csvs.length)
-// csvs.slice(289, 296).forEach((element) => {
+// csvs.slice(130, 140).forEach((element) => {
 //     const gender = element.gender /// input value when send csv
 //     const length = element.length /// input value when send csv
 //     const area = element.area /// input value when send csv
@@ -252,11 +258,10 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 //     generatePdfs(gender, length, area, fileName)
 // });
 
-
 const gender = 'female' /// input value when send csv
-const length = 2  /// input value when send csv
-const area = 1454 /// input value when send csv
-const fileName = '671454_com_88_female_without_photo_6_2023-10-1' /// input value when send csv
+const length = 4  /// input value when send csv
+const area = 464 /// input value when send csv
+const fileName = '150464_com_2277_female_without_photo_129_2023-10-1' /// input value when send csv
 generatePdfs(gender, length, area, fileName)
 
 app.use(express.json())
