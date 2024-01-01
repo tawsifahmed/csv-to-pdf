@@ -251,7 +251,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 }
 
 // console.log('csvs length =>', maleCsvs.length)
-// maleCsvs.slice(0, 10).forEach((element) => {
+// maleCsvs.slice(73, 74).forEach((element) => {
 //     const gender = element.gender /// input value when send csv
 //     const length = element.length /// input value when send csv
 //     const area = element.area /// input value when send csv
@@ -260,7 +260,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 // });
 
 console.log('csvs length =>', femaleCsvs.length)
-femaleCsvs.slice(140, 146).forEach((element) => {
+femaleCsvs.slice(83, 91).forEach((element) => {
     const gender = element.gender /// input value when send csv
     const length = element.length /// input value when send csv
     const area = element.area /// input value when send csv
