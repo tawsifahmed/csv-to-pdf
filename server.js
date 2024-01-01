@@ -5,7 +5,8 @@ const pug = require('pug')
 const puppeteer = require('puppeteer')
 const XLSX = require('xlsx');
 const app = express()
-const csvs = require('./data')
+const maleCsvs = require('./maleData')
+const femaleCsvs = require('./femaleData')
 
 function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 
@@ -249,8 +250,8 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 
 }
 
-// console.log('csvs length =>', csvs.length)
-// csvs.slice(130, 140).forEach((element) => {
+// console.log('csvs length =>', maleCsvs.length)
+// maleCsvs.slice(0, 10).forEach((element) => {
 //     const gender = element.gender /// input value when send csv
 //     const length = element.length /// input value when send csv
 //     const area = element.area /// input value when send csv
@@ -258,11 +259,20 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 //     generatePdfs(gender, length, area, fileName)
 // });
 
-const gender = 'female' /// input value when send csv
-const length = 4  /// input value when send csv
-const area = 541 /// input value when send csv
-const fileName = '150541_com_1536_female_without_photo_87_2023-10-1' /// input value when send csv
-generatePdfs(gender, length, area, fileName)
+console.log('csvs length =>', femaleCsvs.length)
+femaleCsvs.slice(140, 146).forEach((element) => {
+    const gender = element.gender /// input value when send csv
+    const length = element.length /// input value when send csv
+    const area = element.area /// input value when send csv
+    const fileName = element.fileName /// input value when send csv
+    generatePdfs(gender, length, area, fileName)
+});
+
+// const gender = 'female' /// input value when send csv
+// const length = 4  /// input value when send csv
+// const area = 551 /// input value when send csv
+// const fileName = '150551_com_1646_female_without_photo_94_2023-10-1' /// input value when send csv
+// generatePdfs(gender, length, area, fileName)
 
 app.use(express.json())
 app.listen(3000, () => console.log('Server started'))
