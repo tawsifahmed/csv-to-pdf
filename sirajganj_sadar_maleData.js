@@ -823,7 +823,7 @@ const sirajganjSadarMaleData = [
         "id": 118,
         "fileName": "880370_com_1_hijra_without_photo_1_2023-10-1",
         "gender": "male",
-        "length": 3,
+        "length": 1,
         "area": 370
       },
       {

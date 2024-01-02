@@ -8,6 +8,7 @@ const app = express()
 const maleCsvs = require('./maleData')
 const femaleCsvs = require('./femaleData')
 const femaleSSadar = require('./sirajganj_sadar_femaleData')
+const maleSSadar = require('./sirajganj_sadar_maleData')
 
 function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 
@@ -34,7 +35,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
     };
 
     var exlData = []
-    parseExcel('./kendro_updated_list.xlsx').forEach(element => {
+    parseExcel('./shirajganj_sadar.xlsx').forEach(element => {
         exlData = element.data
     });
 
@@ -246,7 +247,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
         await browser.close();
     }
 
-    fs.createReadStream(__dirname + `/sirajganj_sadar_female_csvs/${fileName}.csv`).pipe(parserOne)
+    fs.createReadStream(__dirname + `/sirajganj_sadar_male_csvs/${fileName}.csv`).pipe(parserOne)
     // fs.createReadStream(__dirname+'/parsed_output_female.csv').pipe(parserTwo)
 
 }
@@ -260,8 +261,19 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 //     generatePdfs(gender, length, area, fileName)
 // });
 
+// console.log('csvs length =>', femaleCsvs.length)
+// femaleSSadar.slice(150, 154).forEach((element) => {
+//     const gender = element.gender /// input value when send csv
+//     const length = element.length /// input value when send csv
+//     const area = element.area /// input value when send csv
+//     const fileName = element.fileName /// input value when send csv
+//     generatePdfs(gender, length, area, fileName)
+// });
+
+
+// sirajganj_s_male
 console.log('csvs length =>', femaleCsvs.length)
-femaleSSadar.slice(0, 3).forEach((element) => {
+maleSSadar.slice(150, 155).forEach((element) => {
     const gender = element.gender /// input value when send csv
     const length = element.length /// input value when send csv
     const area = element.area /// input value when send csv
