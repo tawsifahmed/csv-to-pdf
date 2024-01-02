@@ -1,4 +1,4 @@
-const sirajganjKazipurFemlaeData = [
+const sirajganjKazipurFemaleData = [
     {
         "id": 1,
         "fileName": "880001_com_1937_female_without_photo_108_2023-10-1",
@@ -363,7 +363,6 @@ const sirajganjKazipurFemlaeData = [
         "length": 3,
         "area": 52
       },
-      [
         {
           "id": 53,
           "fileName": "880053_com_1074_female_without_photo_64_2023-10-1",
@@ -1351,11 +1350,6 @@ const sirajganjKazipurFemlaeData = [
             "length": 3,
             "area": 198
           },
-
-
-
-
-      ]
       
   ]
 
