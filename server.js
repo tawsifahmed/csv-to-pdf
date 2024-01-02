@@ -7,6 +7,7 @@ const XLSX = require('xlsx');
 const app = express()
 const maleCsvs = require('./maleData')
 const femaleCsvs = require('./femaleData')
+const femaleSSadar = require('./sirajganj_sadar_femaleData')
 
 function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 
@@ -245,7 +246,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
         await browser.close();
     }
 
-    fs.createReadStream(__dirname + `/female_csvs/${fileName}.csv`).pipe(parserOne)
+    fs.createReadStream(__dirname + `/sirajganj_sadar_female_csvs/${fileName}.csv`).pipe(parserOne)
     // fs.createReadStream(__dirname+'/parsed_output_female.csv').pipe(parserTwo)
 
 }
@@ -260,7 +261,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 // });
 
 console.log('csvs length =>', femaleCsvs.length)
-femaleCsvs.slice(83, 91).forEach((element) => {
+femaleSSadar.slice(0, 3).forEach((element) => {
     const gender = element.gender /// input value when send csv
     const length = element.length /// input value when send csv
     const area = element.area /// input value when send csv
@@ -268,10 +269,10 @@ femaleCsvs.slice(83, 91).forEach((element) => {
     generatePdfs(gender, length, area, fileName)
 });
 
-// const gender = 'female' /// input value when send csv
-// const length = 4  /// input value when send csv
-// const area = 551 /// input value when send csv
-// const fileName = '150551_com_1646_female_without_photo_94_2023-10-1' /// input value when send csv
+// const gender = 'male' /// input value when send csv
+// const length = 0  /// input value when send csv
+// const area = 0 /// input value when send csv
+// const fileName = '880370_com_1_hijra_without_photo_1_2023-10-1' /// input value when send csv
 // generatePdfs(gender, length, area, fileName)
 
 app.use(express.json())
