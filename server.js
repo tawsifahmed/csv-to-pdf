@@ -37,7 +37,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
     };
 
     var exlData = []
-    parseExcel('./shirajganj_kazipur.xlsx').forEach(element => {
+    parseExcel('./shirajganj_sadar.xlsx').forEach(element => {
         exlData = element.data
     });
 
@@ -249,7 +249,7 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
         await browser.close();
     }
 
-    fs.createReadStream(__dirname + `/sirajganj_kazipur_female_csvs/${fileName}.csv`).pipe(parserOne)
+    fs.createReadStream(__dirname + `/sirajganj_sadar_male_csvs/${fileName}.csv`).pipe(parserOne)
     // fs.createReadStream(__dirname+'/parsed_output_female.csv').pipe(parserTwo)
 
 }
@@ -273,15 +273,15 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 // });
 
 
-// // sirajganj_s_male
-// console.log('csvs length =>', femaleCsvs.length)
-// maleSSadar.slice(0, 10).forEach((element) => {
-//     const gender = element.gender /// input value when send csv
-//     const length = element.length /// input value when send csv
-//     const area = element.area /// input value when send csv
-//     const fileName = element.fileName /// input value when send csv
-//     generatePdfs(gender, length, area, fileName)
-// });
+// sirajganj_s_male
+console.log('csvs length =>', femaleCsvs.length)
+maleSSadar.slice(140, 155).forEach((element) => {
+    const gender = element.gender /// input value when send csv
+    const length = element.length /// input value when send csv
+    const area = element.area /// input value when send csv
+    const fileName = element.fileName /// input value when send csv
+    generatePdfs(gender, length, area, fileName)
+});
 
 // sirajganj_k_male
 // console.log('csvs length =>', femaleCsvs.length)
@@ -294,14 +294,14 @@ function generatePdfs(genderProps, lengthProps, areaProps, fileNameProps) {
 // });
 
 // sirajganj_k_female
-console.log('csvs length =>', femaleCsvs.length)
-femaleSKazipur.slice(180, 193).forEach((element) => {
-    const gender = element.gender /// input value when send csv
-    const length = element.length /// input value when send csv
-    const area = element.area /// input value when send csv
-    const fileName = element.fileName /// input value when send csv
-    generatePdfs(gender, length, area, fileName)
-});
+// console.log('csvs length =>', femaleCsvs.length)
+// femaleSKazipur.slice(180, 193).forEach((element) => {
+//     const gender = element.gender /// input value when send csv
+//     const length = element.length /// input value when send csv
+//     const area = element.area /// input value when send csv
+//     const fileName = element.fileName /// input value when send csv
+//     generatePdfs(gender, length, area, fileName)
+// });
 
 // const gender = 'male' /// input value when send csv
 // const length = 0  /// input value when send csv
