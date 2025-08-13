@@ -5,5 +5,8 @@ The leaflet contained -
  - Name of vote center
  - Area
  - Address
+ - Photo of the MP candidate
 
 These information were given the in the CSV files, we converted it to leaflet page format.
+
+Technologies used: node, pug, css, js 
